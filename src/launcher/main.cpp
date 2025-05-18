@@ -9,15 +9,6 @@
 
 namespace {
 
-void printUsage()
-{
-   std::cout
-      << "launcher - simple Windows app for launching other apps" << std::endl
-      << "usage:" << std::endl
-      << "   <cmd> - execute a command" << std::endl
-   ;
-}
-
 std::string buildFilePath()
 {
    char path[MAX_PATH];
@@ -25,9 +16,19 @@ std::string buildFilePath()
    return std::string("") + path + "\\..\\shortcuts.txt";
 }
 
+void printUsage()
+{
+   std::cout
+      << "launcher - simple Windows app for launching other apps" << std::endl
+      << "shortcuts are stored in file " << buildFilePath() << std::endl
+      << "usage:" << std::endl
+      << "   <cmd> - execute a command" << std::endl
+   ;
+}
+
 void holdOpenWindow()
 {
-   std::cout << std::endl << "press any key to continue" << std::endl;
+   std::cout << std::endl << "command returned an error; press any key to continue" << std::endl;
    ::getch();
 }
 
